@@ -1,10 +1,12 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-// import Header from './components/ui/Header';
 import getPrefData from './components/prefAPI';
 import getPopData from './components/popAPI';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import NoDataToDisplay from 'highcharts/modules/no-data-to-display';
+
+NoDataToDisplay(Highcharts);
 
 type PrefData = {
   prefCode: number;
@@ -37,9 +39,24 @@ const App: React.FC = () => {
   const options = {
     chart: {
       type: 'spline',
+      backgroundColor: '#ffcb9a',
+      polar: true,
     },
     title: {
-      text: '人口グラフ',
+      text: '人口構成',
+      style: {
+        color: '#076537',
+      },
+    },
+    lang: {
+      noData: 'データがありません',
+    },
+    noData: {
+      style: {
+        fontWeight: 'bold',
+        fontSize: '15px',
+        color: '#303030',
+      },
     },
     xAxis: {
       categories: [
@@ -96,31 +113,36 @@ const App: React.FC = () => {
 
   return (
     <div className="container">
-      <h1 className="">
+      <h1 className="container-title">
         <span className="">都道府県</span>
       </h1>
-      <div className="">
-        {prefectures?.map((item) => {
-          return (
-            <label key={item.prefCode} className="">
-              <input
-                className="checkbox"
-                type="checkbox"
-                onChange={(e) =>
-                  handleChange(e.target.checked, item.prefCode)
-                }
-              />
-              <span>{item.prefName}</span>
-            </label>
-          );
-        })}
-      </div>
-      <div className="">
+      <div className="container-chart">
         <HighchartsReact
           highcharts={Highcharts}
           constructorType={'chart'}
           options={options}
         />
+      </div>
+      <div className="app-prefectures-list-container">
+        {prefectures?.map((item) => {
+          return (
+            <label
+              key={item.prefCode}
+              className="app-prefectures-list"
+            >
+              <input
+                className="app-prefectures-list-checkbox"
+                type="checkbox"
+                onChange={(e) =>
+                  handleChange(e.target.checked, item.prefCode)
+                }
+              />
+              <span className="app-prefectures-name">
+                {item.prefName}
+              </span>
+            </label>
+          );
+        })}
       </div>
     </div>
   );
