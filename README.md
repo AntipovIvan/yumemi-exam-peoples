@@ -14,7 +14,7 @@
 
 npm start
 開発モードでアプリを実行します。
-http：// localhost：3000 を開いて、ブラウザで表示します。
+http://localhost:3000 を開いて、ブラウザで表示します。
 
 ## Links
 
