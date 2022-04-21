@@ -25,7 +25,7 @@ http://localhost:3000 を開いて、ブラウザで表示します。
 
 <!-- Links -->
 
-[exam]: (https://yumemi-exam-people.web.app/){:target="_blank" rel="noopener"}
-[exam2]: (https://yumemi-exam-people.firebaseapp.com/){:target="_blank" rel="noopener"}
+[exam]: https://yumemi-exam-people.web.app/
+[exam2]: https://yumemi-exam-people.firebaseapp.com/
 [api]: https://opendata.resas-portal.go.jp/docs/api/v1/index.html
 [highcharts]: https://www.highcharts.com/
