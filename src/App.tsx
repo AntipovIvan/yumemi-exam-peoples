@@ -79,6 +79,32 @@ const App: React.FC = () => {
         '2040',
         '2045',
       ],
+      offset: 0,
+      title: {
+        text: '年度',
+        align: 'high',
+        textAlign: 'left',
+        rotation: 0,
+        offset: 0,
+        margin: 0,
+        y: 30,
+        x: -27,
+      },
+    },
+    yAxis: {
+      visible: true,
+      tickPosition: 'inside',
+      offset: 0,
+      title: {
+        text: '人口数',
+        align: 'high',
+        textAlign: 'left',
+        rotation: 0,
+        offset: 0,
+        margin: 0,
+        y: -20,
+        x: -47,
+      },
     },
     series: graphData,
   };
@@ -114,15 +140,12 @@ const App: React.FC = () => {
   return (
     <div className="container">
       <h1 className="container-title">
-        <span className="">都道府県</span>
+        <span>都道府県別の総人口推移グラフ</span>
       </h1>
-      <div className="container-chart">
-        <HighchartsReact
-          highcharts={Highcharts}
-          constructorType={'chart'}
-          options={options}
-        />
-      </div>
+      <h3 className="container-main">
+        <span>都道府県</span>
+      </h3>
+
       <div className="app-prefectures-list-container">
         {prefectures?.map((item) => {
           return (
@@ -143,6 +166,13 @@ const App: React.FC = () => {
             </label>
           );
         })}
+      </div>
+      <div className="container-chart">
+        <HighchartsReact
+          highcharts={Highcharts}
+          constructorType={'chart'}
+          options={options}
+        />
       </div>
     </div>
   );

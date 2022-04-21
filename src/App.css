@@ -21,13 +21,15 @@ a {
   margin: auto;
   padding: 0 20px;
 }
-
 .container-title {
   text-align: center;
   margin-bottom: 1rem;
 }
-.container-chart {
+.container-main {
   margin-bottom: 1rem;
+}
+.container-chart {
+  padding-bottom: 2rem;
 }
 .app-prefectures-list-container {
   display: flex;
@@ -50,6 +52,7 @@ a {
   margin-left: 1.8rem;
   font-size: 16px;
 }
+
 .app-prefectures-name,
 .app-prefectures-list-checkbox {
   cursor: pointer;
@@ -117,4 +120,24 @@ input[type='checkbox']:checked:after {
   position: absolute;
   top: 2px;
   left: 7px;
+}
+
+@media screen and (max-width: 420px) {
+  .app-prefectures-list {
+    min-width: 28%;
+  }
+  .container-title {
+    font-size: 16px;
+  }
+  .container-main {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 421px) and (max-width: 914px) {
+  .app-prefectures-list {
+    min-width: 18%;
+  }
+  .container-title {
+    font-size: 18px;
+  }
 }
